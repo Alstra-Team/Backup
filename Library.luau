@@ -4737,7 +4737,7 @@ function Library:CreateWindow(p)
 
 			if not firsttime then
 				firsttime = true
-				
+			end	
 		end
 
 		ChSize_1.MouseButton1Click:Connect(closeui)
