@@ -4735,7 +4735,7 @@ function Library:CreateWindow(p)
 				open:Play()
 			end
 
-			if not firsttime then
+			--[[if not firsttime then
 				firsttime = true
 				Tabs:Notify({
 					Title = 'Quertzy Hub',
@@ -4743,7 +4743,7 @@ function Library:CreateWindow(p)
 					Duration = 10
 				})
 			end
-		end
+		end]]
 
 		ChSize_1.MouseButton1Click:Connect(closeui)
 
