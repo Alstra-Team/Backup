@@ -4734,6 +4734,7 @@ function Library:CreateWindow(p)
 				})
 				open:Play()
 			end
+        end
 
 		ChSize_1.MouseButton1Click:Connect(closeui)
 
