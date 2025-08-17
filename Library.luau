@@ -4734,7 +4734,10 @@ function Library:CreateWindow(p)
 				})
 				open:Play()
 			end
-        end
+
+			if not firsttime then
+				firsttime = true
+		    end
 
 		ChSize_1.MouseButton1Click:Connect(closeui)
 
