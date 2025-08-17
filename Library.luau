@@ -4737,7 +4737,13 @@ function Library:CreateWindow(p)
 
 			if not firsttime then
 				firsttime = true
-		    end
+				Tabs:Notify({
+					Title = '',
+					Content = '',
+					Duration = 0.01
+				})
+			end
+		end
 
 		ChSize_1.MouseButton1Click:Connect(closeui)
 
