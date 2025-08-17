@@ -4735,16 +4735,6 @@ function Library:CreateWindow(p)
 				open:Play()
 			end
 
-			--[[if not firsttime then
-				firsttime = true
-				Tabs:Notify({
-					Title = 'Quertzy Hub',
-					Content = 'Press the <font color="#00FF7F" size="14">('..tostring(Keybind):gsub("Enum.KeyCode.", "")..')</font> button to hide and show the UI',
-					Duration = 10
-				})
-			end
-		end]]
-
 		ChSize_1.MouseButton1Click:Connect(closeui)
 
 		U.InputBegan:Connect(function(i)
