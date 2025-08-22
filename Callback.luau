@@ -148,11 +148,11 @@ end
 
 _Env._Notify(
     "rbxassetid://122367415593848",
-    Language("Quertzy Hub - Scripts", "Quertzy Hub - สคริปต์"),
-    Language("Do you want to delete the workspace file?", "คุณต้องการลบไฟล์ Workspace หรือไม่?"),
+    _Env._Language("Quertzy Hub - Scripts", "Quertzy Hub - สคริปต์"),
+    _Env._Language("Do you want to delete the workspace file?", "คุณต้องการลบไฟล์ Workspace หรือไม่?"),
     99999999,
-    Language("Yes", "ยืนยัน"),
-    Language("No", "ไม่"),
+    _Env._Language("Yes", "ยืนยัน"),
+    _Env._Language("No", "ไม่"),
     DeleteWorkspace
 )
 
