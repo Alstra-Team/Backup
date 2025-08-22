@@ -34,7 +34,7 @@ local function _Env._Language(English, Thai)
 end
 
 local DeleteWorkspace = Instance.new("BindableFunction")
-DeleteFolder.OnInvoke = function(v)
+DeleteWorkspace.OnInvoke = function(v)
     if v == "Yes" then
         local path = "Quertzy'Script/Config/"..game.Players.LocalPlayer.UserId
         if isfolder(path) then
@@ -61,21 +61,15 @@ function _Env._Loop(func)
 	end)
 end
 
-function _Env._Button(tab, title, key, callback)
-	Default(key, false)
-	return tab:Button({
-		Title = title,
-		Callback = function()
-			if callback then callback() end
-			_Env.Config[key] = true
-			SaveConfig()
-			if _Env.Func[key] then _Env.Func[key]() end
-		end
-	})
+function _Env._Button(tab, title, callback)
+    return tab:Button({
+        Title = title,
+        Callback = callback
+    })
 end
 
 function _Env._Toggle(tab, title, key)
-	Default(key, false)
+	_Env._Default(key, false)
 	return tab:Toggle({
 		Title = title,
 		Value = _Env.Config[key],
@@ -88,7 +82,7 @@ function _Env._Toggle(tab, title, key)
 end
 
 function _Env._Slider(tab, title, min, max, key, rounding)
-    Default(key, min)
+    _Env._Default(key, min)
     local slider = tab:Slider({
         Title = title,
         Min = min,
@@ -107,7 +101,7 @@ function _Env._Slider(tab, title, min, max, key, rounding)
 end
 
 function _Env._Dropdown(tab, title, list, multi, key)
-	Default(key, multi and {} or list[1])
+	_Env._Default(key, multi and {} or list[1])
 	return tab:Dropdown({
 		Title = title,
 		List = list,
@@ -122,7 +116,7 @@ function _Env._Dropdown(tab, title, list, multi, key)
 end
 
 function _Env._Textbox(tab, title, key)
-	Default(key, "")
+	_Env._Default(key, "")
 	return tab:Textbox({
 		Value = _Env.Config[key],
 		ClearOnFocus = true,
