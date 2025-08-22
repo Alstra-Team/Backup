@@ -152,3 +152,11 @@ _Env._Notify(
     Language("No", "ไม่"),
     DeleteFolder
 )
+
+Button   = _Env._Button
+Toggle   = _Env._Toggle
+Slider   = _Env._Slider
+Dropdown = _Env._Dropdown
+Textbox  = _Env._Textbox
+Notify   = _Env._Notify
+Loop     = _Env._Loop
