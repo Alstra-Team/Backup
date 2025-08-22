@@ -89,7 +89,7 @@ end
 
 function _Env._Slider(tab, title, min, max, key)
     Default(key, min)
-    local slider = tab:Slider({
+    tab:Slider({
         Title = title,
         Min = min,
         Max = max,
@@ -101,10 +101,6 @@ function _Env._Slider(tab, title, min, max, key)
             if _Env.Func[key] then _Env.Func[key]() end
         end
     })
-    if slider and slider.Callback then
-        slider.Callback(_Env.Config[key])
-    end
-    return slider
 end
 
 function _Env._Dropdown(tab, title, list, multi, key)
