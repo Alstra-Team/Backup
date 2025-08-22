@@ -240,6 +240,9 @@ function Library.Window(meta)
 	local Realscrolling = Instance.new("ScrollingFrame")
 	local UIGridLayout = Instance.new("UIGridLayout")
 	local UIPadding_6 = Instance.new("UIPadding")
+	local Realscrolling2 = Instance.new("ScrollingFrame")
+	local UIGridLayout2 = Instance.new("UIGridLayout")
+	local UIPadding_7 = Instance.new("UIPadding")
 	local RealInside = Instance.new("Frame")
 	local Profile = Instance.new("Frame")
 	local UICorner_3 = Instance.new("UICorner")
@@ -626,12 +629,31 @@ function Library.Window(meta)
 	Realscrolling.ScrollBarThickness = 0
 
 	UIGridLayout.Parent = Realscrolling
+	UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	UIGridLayout.CellPadding = UDim2.new(0, 9, 0, 9)
+	UIGridLayout.CellPadding = UDim2.new(0, 8, 0, 8)
 	UIGridLayout.CellSize = UDim2.new(0.479999989, 0, 0, 50)
+
+	Realscrolling2.Name = "Realscrolling2"
+	Realscrolling2.Parent = RealScrollongTabs
+	Realscrolling2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Realscrolling2.BackgroundTransparency = 1
+	Realscrolling2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Realscrolling2.BorderSizePixel = 0
+	Realscrolling2.Selectable = false
+	Realscrolling2.Size = UDim2.new(1, 0, 1, 0)
+	Realscrolling2.ScrollBarThickness = 0
+
+	UIGridLayout2.Parent = Realscrolling2
+	UIGridLayout2.SortOrder = Enum.SortOrder.LayoutOrder
+	UIGridLayout2.CellPadding = UDim2.new(0, 8, 0, 8)
+	UIGridLayout2.CellSize = UDim2.new(0.479999989, 0, 0, 50)
 
 	UIPadding_6.Parent = Realscrolling
 	UIPadding_6.PaddingTop = UDim.new(0, 1)
+
+	UIPadding_7.Parent = Realscrolling2
+	UIPadding_7.PaddingTop = UDim.new(0, 1)
 
 	UIPadding_9.Parent = Main_Pages
 	UIPadding_9.PaddingTop = UDim.new(0, 45)
@@ -674,6 +696,7 @@ function Library.Window(meta)
 		local Title = meta.Title
 		local Desc = meta.Desc
 		local Icon = meta.Icon
+     local Mode2 = meta.Mode2
 
 		local Addtab = Instance.new("Frame")
 		local insideTab = Instance.new("Frame")
@@ -686,12 +709,21 @@ function Library.Window(meta)
 		local UIPadding = Instance.new("UIPadding")
 		local UICorner = Instance.new("UICorner")
 
-		Addtab.Name = "Addtab"
-		Addtab.Parent = Realscrolling
-		Addtab.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-		Addtab.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		Addtab.BorderSizePixel = 0
-		Addtab.Size = UDim2.new(0, 100, 0, 100)
+if Mode2 then
+    Addtab.Name = "Addtab"
+    Addtab.Parent = Realscrolling2
+    Addtab.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    Addtab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Addtab.BorderSizePixel = 0
+    Addtab.Size = UDim2.new(0, 100, 0, 100)
+else
+    Addtab.Name = "Addtab"
+    Addtab.Parent = Realscrolling
+    Addtab.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    Addtab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Addtab.BorderSizePixel = 0
+    Addtab.Size = UDim2.new(0, 100, 0, 100)
+end
 
 		insideTab.Name = "insideTab"
 		insideTab.Parent = Addtab
