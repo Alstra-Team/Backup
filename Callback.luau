@@ -30,7 +30,11 @@ local function LoadConfig()
 end
 
 local function _Env._Language(English, Thai)
-    return _Env.Config["Language"] == "ไทย" and Thai or English
+    if _Env.Config["Language"] == "ไทย" then
+        return Thai
+    else
+        return English
+    end
 end
 
 local DeleteWorkspace = Instance.new("BindableFunction")
