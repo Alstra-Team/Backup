@@ -87,18 +87,16 @@ function _Env._Toggle(tab, title, key)
 	})
 end
 
-function _Env._Slider(tab, title, min, max, rounding, key, default)
-    Default(key, default or min)
-    return tab:Slider({
+function _Env._Slider(tab, title, min, max, key)
+    tab:Slider({
         Title = title,
         Min = min,
         Max = max,
-        Rounding = rounding or 0,
-        Value = _Env.Config[key],
+        Rounding = 0,
+        Value = _Env.Config[key] or min,
         Callback = function(v)
-			_Env.Config[key] = v
-			SaveConfig()
-			if _Env.Func[key] then _Env.Func[key]() end
+            _Env.Config[key] = v
+            SaveConfig()
         end
     })
 end
