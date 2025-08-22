@@ -96,11 +96,9 @@ function _Env._Slider(tab, title, min, max, rounding, key, default)
         Rounding = rounding or 0,
         Value = _Env.Config[key],
         Callback = function(v)
-            _Env.Config[key] = v
-            SaveConfig()
-            if _Env.Func[key] then
-                _Env.Func[key](v)
-            end
+			_Env.Config[key] = v
+			SaveConfig()
+			if _Env.Func[key] then _Env.Func[key]() end
         end
     })
 end
