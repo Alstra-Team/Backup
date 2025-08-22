@@ -29,7 +29,7 @@ local function LoadConfig()
 	end
 end
 
-local function _Env._Language(English, Thai)
+local function Language(English, Thai)
     if _Env.Config["Language"] == "ไทย" then
         return Thai
     else
@@ -48,13 +48,13 @@ DeleteWorkspace.OnInvoke = function(v)
     end
 end
 
-local function _Env._Default(key, value)
+local function Default(key, value)
 	if _Env.Config[key] == nil then
 		_Env.Config[key] = value
 	end
 end
 
-_Env._Default("Language", "English")
+Default("Language", "English")
 LoadConfig()
 
 function _Env._Loop(func)
@@ -73,7 +73,7 @@ function _Env._Button(tab, title, callback)
 end
 
 function _Env._Toggle(tab, title, key)
-	_Env._Default(key, false)
+	Default(key, false)
 	return tab:Toggle({
 		Title = title,
 		Value = _Env.Config[key],
@@ -86,7 +86,7 @@ function _Env._Toggle(tab, title, key)
 end
 
 function _Env._Slider(tab, title, min, max, key, rounding)
-    _Env._Default(key, min)
+    Default(key, min)
     local slider = tab:Slider({
         Title = title,
         Min = min,
@@ -105,7 +105,7 @@ function _Env._Slider(tab, title, min, max, key, rounding)
 end
 
 function _Env._Dropdown(tab, title, list, multi, key)
-	_Env._Default(key, multi and {} or list[1])
+	Default(key, multi and {} or list[1])
 	return tab:Dropdown({
 		Title = title,
 		List = list,
@@ -120,7 +120,7 @@ function _Env._Dropdown(tab, title, list, multi, key)
 end
 
 function _Env._Textbox(tab, title, key)
-	_Env._Default(key, "")
+	Default(key, "")
 	return tab:Textbox({
 		Value = _Env.Config[key],
 		ClearOnFocus = true,
@@ -146,11 +146,11 @@ end
 
 _Env._Notify(
     "rbxassetid://122367415593848",
-    _Env._Language("Quertzy Hub - Scripts", "Quertzy Hub - สคริปต์"),
-    _Env._Language("Do you want to delete the workspace file?", "คุณต้องการลบไฟล์ Workspace หรือไม่?"),
+    Language("Quertzy Hub - Scripts", "Quertzy Hub - สคริปต์"),
+    Language("Do you want to delete the workspace file?", "คุณต้องการลบไฟล์ Workspace หรือไม่?"),
     99999999,
-    _Env._Language("Yes", "ยืนยัน"),
-    _Env._Language("No", "ไม่"),
+    Language("Yes", "ยืนยัน"),
+    Language("No", "ไม่"),
     DeleteWorkspace
 )
 
@@ -161,5 +161,3 @@ Dropdown = _Env._Dropdown
 Textbox  = _Env._Textbox
 Notify   = _Env._Notify
 Loop     = _Env._Loop
-Language = _Env._Language
-Default  = _Env._Default
