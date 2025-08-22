@@ -1,4 +1,4 @@
-local _Env = getgenv(), getfenv()
+local _Env = getgenv()
 _Env.Config = {}
 _Env.Func = {}
 
@@ -30,11 +30,7 @@ local function LoadConfig()
 end
 
 local function Language(English, Thai)
-    if _Env.Config["Language"] == "ไทย" then
-        return Thai
-    else
-        return English
-    end
+    return _Env.Config["Language"] == "ไทย" and Thai or English
 end
 
 local DeleteFolder = Instance.new("BindableFunction")
@@ -55,10 +51,9 @@ local function Default(key, value)
 end
 
 Default("Language", "English")
-
 LoadConfig()
 
-local function Loop(func)
+function _Env._Loop(func)
 	task.spawn(function()
 		while task.wait() do
 			xpcall(func, warn)
@@ -66,7 +61,7 @@ local function Loop(func)
 	end)
 end
 
-local function Button(tab, title, key, callback)
+function _Env._Button(tab, title, key, callback)
 	Default(key, false)
 	return tab:Button({
 		Title = title,
@@ -79,7 +74,7 @@ local function Button(tab, title, key, callback)
 	})
 end
 
-local function Toggle(tab, title, key)
+function _Env._Toggle(tab, title, key)
 	Default(key, false)
 	return tab:Toggle({
 		Title = title,
@@ -92,7 +87,7 @@ local function Toggle(tab, title, key)
 	})
 end
 
-local function Slider(tab, title, min, max, key)
+function _Env._Slider(tab, title, min, max, key)
 	Default(key, min)
 	return tab:Slider({
 		Title = title,
@@ -100,7 +95,7 @@ local function Slider(tab, title, min, max, key)
 		Max = max,
 		Rounding = 0,
 		Value = _Env.Config[key],
-		CallBack = function(v)
+		Callback = function(v)
 			_Env.Config[key] = v
 			SaveConfig()
 			if _Env.Func[key] then _Env.Func[key]() end
@@ -108,7 +103,7 @@ local function Slider(tab, title, min, max, key)
 	})
 end
 
-local function Dropdown(tab, title, list, multi, key)
+function _Env._Dropdown(tab, title, list, multi, key)
 	Default(key, multi and {} or list[1])
 	return tab:Dropdown({
 		Title = title,
@@ -123,7 +118,7 @@ local function Dropdown(tab, title, list, multi, key)
 	})
 end
 
-local function Textbox(tab, title, key)
+function _Env._Textbox(tab, title, key)
 	Default(key, "")
 	return tab:Textbox({
 		Value = _Env.Config[key],
@@ -136,7 +131,7 @@ local function Textbox(tab, title, key)
 	})
 end
 
-local function Notify(icon, title, text, dur, b1, b2, cb)
+function _Env._Notify(icon, title, text, dur, b1, b2, cb)
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Icon = icon,
         Title = title,
@@ -148,7 +143,7 @@ local function Notify(icon, title, text, dur, b1, b2, cb)
     })
 end
 
-Notify(
+_Env._Notify(
     "rbxassetid://122367415593848",
     Language("Quertzy Hub - Scripts", "Quertzy Hub - สคริปต์"),
     Language("Do you want to delete the workspace file?", "คุณต้องการลบไฟล์ Workspace หรือไม่?"),
