@@ -29,11 +29,11 @@ local function LoadConfig()
 	end
 end
 
-local function Language(English, Thai)
+local function _Env._Language(English, Thai)
     return _Env.Config["Language"] == "ไทย" and Thai or English
 end
 
-local DeleteFolder = Instance.new("BindableFunction")
+local DeleteWorkspace = Instance.new("BindableFunction")
 DeleteFolder.OnInvoke = function(v)
     if v == "Yes" then
         local path = "Quertzy'Script/Config/"..game.Players.LocalPlayer.UserId
@@ -44,13 +44,13 @@ DeleteFolder.OnInvoke = function(v)
     end
 end
 
-local function Default(key, value)
+local function _Env._Default(key, value)
 	if _Env.Config[key] == nil then
 		_Env.Config[key] = value
 	end
 end
 
-Default("Language", "English")
+_Env._Default("Language", "English")
 LoadConfig()
 
 function _Env._Loop(func)
@@ -153,7 +153,7 @@ _Env._Notify(
     99999999,
     Language("Yes", "ยืนยัน"),
     Language("No", "ไม่"),
-    DeleteFolder
+    DeleteWorkspace
 )
 
 Button   = _Env._Button
@@ -163,3 +163,5 @@ Dropdown = _Env._Dropdown
 Textbox  = _Env._Textbox
 Notify   = _Env._Notify
 Loop     = _Env._Loop
+Language     = _Env._Language
+Default     = _Env._Default
