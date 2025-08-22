@@ -163,5 +163,5 @@ Dropdown = _Env._Dropdown
 Textbox  = _Env._Textbox
 Notify   = _Env._Notify
 Loop     = _Env._Loop
-Language     = _Env._Language
-Default     = _Env._Default
+Language = _Env._Language
+Default  = _Env._Default
