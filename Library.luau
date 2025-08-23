@@ -943,6 +943,7 @@ end
 
 			local Section = Instance.new("Frame")
 			local UIListLayout = Instance.new("UIListLayout")
+			local LineZ = Instance.new("Frame")
 			local TitleSection = Instance.new("TextLabel")
 			local UIPadding = Instance.new("UIPadding")
 			local Line = Instance.new("Frame")
@@ -960,6 +961,15 @@ end
 			UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 			UIListLayout.Padding = UDim.new(0, 3)
+
+				LineZ.Name = "LineZ"
+				LineZ.Parent = Section
+				LineZ.BackgroundColor3 = Color3.fromRGB(134,211,255)
+				LineZ.BackgroundTransparency = 0.949999988079071
+				LineZ.BorderColor3 = Color3.fromRGB(0,0,0)
+				LineZ.BorderSizePixel = 0
+				LineZ.Position = UDim2.new(0, 0,0, 44)
+				LineZ.Size = UDim2.new(1, 0,0, 1)
 
 			TitleSection.Name = "Title"
 			TitleSection.Parent = Section
