@@ -962,6 +962,15 @@ end
 			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 			UIListLayout.Padding = UDim.new(0, 3)
 
+				LineZ.Name = "LineZ"
+				LineZ.Parent = Section
+				LineZ.BackgroundColor3 = Color3.fromRGB(255,255,255)
+				LineZ.BackgroundTransparency = 0.949999988079071
+				LineZ.BorderColor3 = Color3.fromRGB(0,0,0)
+				LineZ.BorderSizePixel = 0
+				LineZ.Position = UDim2.new(0, 0,0, 44)
+				LineZ.Size = UDim2.new(1, 0,0, 1)
+
 			TitleSection.Name = "Title"
 			TitleSection.Parent = Section
 			TitleSection.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
