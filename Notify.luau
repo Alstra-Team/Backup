@@ -4,7 +4,7 @@ local Quertzy = Instance.new("ScreenGui")
 Quertzy.Parent = game.CoreGui
 Quertzy.Name = "Quertzy"
 Quertzy.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Patinum.ResetOnSpawn = false
+Quertzy.ResetOnSpawn = false
 
 local AUI = {}
 
