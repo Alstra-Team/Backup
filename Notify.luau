@@ -24,7 +24,7 @@ AUI[2]["Padding"] = UDim.new(0, 8)
 AUI[2]["VerticalAlignment"] = Enum.VerticalAlignment.Bottom
 AUI[2]["SortOrder"] = Enum.SortOrder.LayoutOrder
 
-function Library:Notify(a)
+function Notify:Notify(a)
 	local Time = a.Time
 
 	local notify = Instance.new("CanvasGroup", AUI[1])
