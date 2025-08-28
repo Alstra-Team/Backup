@@ -1,9 +1,9 @@
 Notify = {}
 
 local Quertzy = Instance.new("ScreenGui")
-Patinum.Parent = game.CoreGui
-Patinum.Name = "Quertzy"
-Patinum.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Quertzy.Parent = game.CoreGui
+Quertzy.Name = "Quertzy"
+Quertzy.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Patinum.ResetOnSpawn = false
 
 local AUI = {}
