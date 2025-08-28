@@ -3,7 +3,7 @@ Notify = {}
 local Quertzy = Instance.new("ScreenGui")
 Quertzy.Parent = game.CoreGui
 Quertzy.Name = "Quertzy"
-Quertzy.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Quertzy.ZIndexBehavior = Enum.ZIndexBehavior.Global
 Quertzy.ResetOnSpawn = false
 
 local AUI = {}
